@@ -1,31 +1,30 @@
 import style from './NewHeaderStyle.module.scss';
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
+import PostResume from "../forms/PostResume";
+import WriteModal from "../modalwin/WriteModal";
+import EntryBlanck from "../forms/EntryBlanck";
 
-import NewsService from "../../services/NewsService";
 function NewHeader() {
     const [showVideo, setShowVideo] = useState(false);
+    const [activemodal, setActivemodal] = useState(false)
+    const [data, setData] = useState('')
 
-    // const allViews = async () => {
-    //     try {
-    //         const {data} = await NewsService.viewPost()
-    //         if(data){
-    //             console.log(data)
-    //         }
-    //     }catch (e) {
-    //         console.log(e)
-    //     }
-    // }
+    const postResume = (pos = '') => {
+        setData(pos)
+        setActivemodal(true)
+    }
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowVideo(true);
         }, 500);
-        // allViews()
+
         return () => clearTimeout(timer);
     }, []);
     return (
         <div className={style.main}>
+            <WriteModal activemodal={activemodal} setActivemodal={setActivemodal} data={<EntryBlanck man={data}  setActivemodal={setActivemodal}/>} setData={setData} />
             <div className={style.video}>
             {showVideo && (
 
@@ -36,30 +35,29 @@ function NewHeader() {
                     playsInline
                     className={style.videoContent}
                 >
-                    <source src={`${process.env.REACT_APP_API_URL}/videos/hopefitness/video.mp4`} type="video/mp4" />
+                    <source src="/files/header/intro.mp4" type="video/mp4" />
                 </video>
                 )}
             </div>
             <div className={style.container}>
                 <div className={style.leftpart}>
-                    <img src="/files/header/logomain.svg" alt=""/>
-                    <div className={style.desc}>ФИТНЕС-КЛУБ <label>ПРЕМИУМ</label>  КЛАССА</div>
-                    <div className={style.product}>Неделя фитнеса по цене гостевого визита</div>
-                    <div className={style.btn}>Узнать подробнее</div>
+                    <img src="/files/header/airlogo.svg" alt=""/>
                 </div>
                 <div className={style.rightpart}>
                     <div className={style.board}>
-                        <Link to='/allnews' className={style.btn}>О нас<div className={style.border}></div></Link>
-                        <Link to='/contacts' className={style.btn}>Зоны<div className={style.border}></div></Link>
-                        <Link to='/vakansii' className={style.btn}>Программы<div className={style.border}></div></Link>
-                        <Link to='/allnews' className={style.btn}>Тренеры<div className={style.border}></div></Link>
-                        <Link to='/contacts' className={style.btn}>Клубная карта<div className={style.border}></div></Link>
-                        <Link to='/vakansii' className={style.btn}>Галерея<div className={style.border}></div></Link>
-                        <Link to='/vakansii' className={style.btn}>Контакты<div className={style.border}></div></Link>
-                        <Link to='/vakansii' className={style.btn}>Личный кабинет<div className={style.border}></div></Link>
+                        {/*<div className={style.btn}>О нас<div className={style.border}></div></div>*/}
+                        <Link to='/allprograms' className={style.btn}>Программа для пилотов<div className={style.border}></div></Link>
+                        <Link to='/contacts' className={style.btn}>Подготовка к обучению<div className={style.border}></div></Link>
+                        <Link to='/contacts' className={style.btn}>Парк самолетов<div className={style.border}></div></Link>
+                        <Link to='/contacts' className={style.btn}>Новости<div className={style.border}></div></Link>
+                        <Link to='/contacts' className={style.btn}>Контакты<div className={style.border}></div></Link>
                     </div>
-
+                    <div className={style.bottomblock}>
+                        <a href="tel:+73433639760" className={style.phone}>+7 (343) 363-97-60</a>
+                        <div className={style.btn} onClick={()=>postResume()}>Оставь заявку</div>
+                    </div>
                 </div>
+
             </div>
         </div>
     );

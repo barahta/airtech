@@ -1,0 +1,248 @@
+
+
+@media screen and (min-width: 1500px){
+  .main {
+    width: 100%;
+    height: 100%;
+    min-height: 45vh;
+    //max-height: 1080px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .video {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+      //background-image: url("./intro.jpg");
+      background-size: cover;
+      background-position: center center;
+      //max-height: 1080px;
+      .videoContent {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        //max-height: 1080px;
+      }
+    }
+
+    .container {
+      width: 100%;
+      height: 100%;
+      //background-color: rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .leftpart {
+      width: 50%;
+      max-width: calc(1920px / 2);
+      height: 100%;
+      //max-height: 1080px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .teacher{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        height: 35vh;
+        background-color: rgba(65,0,153,0.8);
+        .photo{
+          background-size: cover;
+          background-position: center center;
+          width: 40%;
+          height: 100%;
+        }
+        .cardboard{
+          display: flex;
+          flex-direction: column;
+          width: calc(60% - 20px);
+          padding-right: 20px;
+          height: calc(100% - 20px);
+          padding-top: 20px;
+          .pilot{
+            background-color: #FFFFFF;
+            width: calc(100% + 50px);
+            min-height: 100px;
+            margin-left: -50px;
+            opacity: 0;
+            transform: translateX(50px); /* Начальное положение за пределами экрана справа */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            .dev{
+              width: calc(100% - 40px);
+              padding: 0 20px;
+              margin-top: 20px;
+            }
+            .name{
+              width: calc(100% - 40px);
+              padding: 0 20px;
+              margin-top: 5px;
+              font-family: ALS, sans-serif;
+              font-size: 20pt;
+              color: #121212;
+              margin-bottom: 10px;
+            }
+          }
+
+          .visible {
+            opacity: 1;
+            transform: translateX(0); /* Перемещение в исходное положение */
+          }
+          .desc{
+            display: flex;
+            flex-direction: column;
+            padding: 0 20px;
+            width: calc(100% - 40px);
+            .text{
+              display: flex;
+              color: #FFFFFF;
+              margin-top: 10px;
+              .ball{
+                width: 8px;
+                height: 8px;
+                background-color: #FFFFFF;
+                margin-right: 5px;
+                margin-top: 5px;
+                border-radius: 8px;
+              }
+              .con{
+                width: calc(100% - 15px);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .rightpart {
+      width: 50%;
+      max-width: calc(1920px / 2);
+      height: 100%;
+      //max-height: 1080px;
+      //background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      .teacher{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        height: 35vh;
+        background-color: rgba(234, 234, 234, 0.8);
+        .photo{
+          background-size: cover;
+          background-position: center center;
+          width: 40%;
+          height: 100%;
+        }
+        .cardboard{
+          display: flex;
+          flex-direction: column;
+          width: calc(60% - 20px);
+          padding-right: 20px;
+          height: calc(100% - 20px);
+          padding-top: 20px;
+          .pilot{
+            background-color: #410099;
+            width: calc(100% + 50px);
+            min-height: 100px;
+            margin-left: -50px;
+            opacity: 0;
+            transform: translateX(50px); /* Начальное положение за пределами экрана справа */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            .dev{
+              width: calc(100% - 40px);
+              padding: 0 20px;
+              margin-top: 20px;
+              color: #F1F1F1;
+            }
+            .name{
+              width: calc(100% - 40px);
+              padding: 0 20px;
+              margin-top: 5px;
+              font-family: ALS, sans-serif;
+              font-size: 20pt;
+              color: #FFF;
+              margin-bottom: 10px;
+            }
+          }
+          .visible {
+            opacity: 1;
+            transform: translateX(0); /* Перемещение в исходное положение */
+          }
+          .desc{
+            display: flex;
+            flex-direction: column;
+            padding: 0 20px;
+            width: calc(100% - 40px);
+            .text{
+              display: flex;
+              color: #454545;
+              margin-top: 10px;
+              .ball{
+                width: 8px;
+                height: 8px;
+                background-color: #454545;
+                margin-right: 5px;
+                margin-top: 5px;
+                border-radius: 8px;
+              }
+              .con{
+                width: calc(100% - 15px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .allteachers{
+    width: 100%;
+    max-width: calc(1920px - 90px);
+    height: 100%;
+    padding: 40px 50px 0 20px;
+    display: flex;
+    justify-content: flex-end;
+    .btn{
+      border: 1px solid #454545;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      margin-bottom: 80px;
+      cursor: pointer;
+      .next{
+        width: 47px;
+        height: 72px;
+        background-size: cover;
+        background-image: url("../images/next.svg");
+        background-position: center right;
+        margin-left: 20px;
+        transition: 0.2s;
+      }
+    }
+    .btn:hover{
+      transition: 0.2s;
+      .next{
+        transform: translateX(5px);
+        transition: 0.2s;
+      }
+    }
+  }
+}

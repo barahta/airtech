@@ -36,7 +36,7 @@
     .container {
       width: 100%;
       height: 100vh;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.2);
       z-index: 1000;
       display: flex;
       justify-content: space-between;
@@ -48,53 +48,11 @@
       height: 100vh;
       //max-height: 1080px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
-
       img{
-        width: calc(1920px / 2 / 100 * 60);
-        margin-right: 0px;
-      }
-      .desc{
-        width: 80%;
-        //display: flex;
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 34pt;
-        color: #FFF;
-        font-weight: 800;
-        margin-top: 20px;
-
-        label{
-          color: #F5DE1E;
-          font-weight: 800;
-        }
-      }
-      .product{
-        width: 60%;
-        text-align: center;
-        margin-top: 40px;
-        font-size: 24pt;
-        color: #FFF;
-        font-weight: 600;
-      }
-      .btn{
-        padding: 20px 40px;
-        color: #000000;
-        background-color: #F5DE1E;
-        margin-top: 20px;
-        font-size: 20pt;
-        font-weight: 800;
-        cursor: pointer;
-        border: 2px solid #F5DE1E;
-        transition: 0.3s;
-      }
-      .btn:hover{
-        color: #FFFFFF;
-        border: 2px solid #F5DE1E;
-        background-color: rgba(0,0,0,0.4);
-        transition: 0.3s;
+        width: calc(1920px / 2 / 100 * 50);
+        margin-right: 22%;
       }
       .board{
 
@@ -109,6 +67,42 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      position: relative;
+      .bottomblock{
+        position: absolute;
+        left: 40px;
+        bottom: 0px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: calc(100% - 40px);
+        .phone{
+          width: 50%;
+          color: #FFF;
+          font-weight: 800;
+          font-size: 30pt;
+        }
+        .btn{
+          width: 50%;
+          height: 120px;
+          border: none;
+          border-left: 1px solid #FFF;
+          border-top: 1px solid #FFF;
+          color: #FFF;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 20pt;
+          cursor: pointer;
+        }
+        .btn:hover{
+          background-color: rgba(65,0,153,0.6);
+          border: none;
+          border-left: 1px solid rgba(65,0,153,0.6);
+          border-top: 1px solid rgba(65,0,153,0.6);
+        }
+      }
+
       .board{
         display: flex;
         flex-direction: column;
@@ -131,7 +125,7 @@
           cursor: pointer;
           transition: 0.5s ease-in-out;
           position: relative;
-          font-size: 20pt;
+          font-size: 16pt;
           font-weight: 200;
           .border{
             display: flex;
@@ -157,7 +151,7 @@
             left: 0;
             width: 100%;
             height: 1px;
-            background-color: #F5DE1E;
+            background-color: #AE57FF;
             transition: 0.5s ease-in-out;
           }
         }

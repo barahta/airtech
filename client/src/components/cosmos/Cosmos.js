@@ -4,34 +4,22 @@ function Cosmos () {
 
     const whys = [
         {
-            title: 'Отличные аниматоры',
-            image: '6.jpg',
-            desc: 'У нас большая команда аниматоров. Профессионалы своего дела, которые сделают ваш праздник незабываемым.'
+            title: 'Два типа самолета',
+            image: 'twofly.svg',
+            desc: 'Наш АУЦ проводит практическую подготовку на самолётах Cessna 172 и Piper PA28',
+            back: 'back1.webp'
         },
         {
-            title: 'Интересные мастер-классы',
-            image: '1.jpg',
-            desc: 'Более 20 различных мастер-классов. Каждый найдет занятие по душе.'
+            title: 'Эксклюзивная программа',
+            image: 'manfly.svg',
+            desc: 'Наш АУЦ добился от Росавиации возможности проводить тренажерную подготовку в кабине самолета, чтобы не создались ложные навыки, а также нашему АУЦ разрешено производить подготовку на любом типе самолетов с одним двигателем начиная от Аэропракт заканчивая Пилатус ПС12.',
+            back: ''
         },
         {
-            title: 'НАМ УЖЕ 3 года',
-            image: '4.jpg',
-            desc: 'Большое количество положительных отзывов подтверждают наш трепетный подход к своему делу!'
-        },
-        {
-            title: 'Игровой лабиринт',
-            image: '2.jpg',
-            desc: 'Многоуровневый игровой лабиринт с горками и тоннелями. '
-        },
-        {
-            title: 'Бассейн с шариками',
-            image: '3.jpg',
-            desc: 'Большой бассейн с шариками. Вашему ребенку точно понравится!'
-        },
-        {
-            title: 'Свой бар',
-            image: '5.jpg',
-            desc: 'Большой выбор разнообразных напитков и десертов для детей. А для родителей у нас есть кофе.'
+            title: 'На своем самолете',
+            image: 'singlefly.svg',
+            desc: 'В нашем АУЦ вы можете пройти практическую подготовку на своем самолете – он должен быть с действующим СЛГ и обслуживаться в сертифицированном центре.',
+            back: 'back2.jpg'
         }
     ]
 
@@ -45,46 +33,39 @@ function Cosmos () {
             <div className={style.container}>
                 <div className={style.content}>
                     <div className={style.left}>
-                        <div className={style.images}>
-                            <img src="./files/cosmos/m1.png" className={style.m1}/>
-                            <img src="./files/cosmos/m2.png" className={style.m2}/>
-                            <img src="./files/cosmos/m3.png" className={style.m3}/>
-                            <img src="./files/cosmos/m4.png" className={style.m4}/>
+                        <div className={style.imgblock}>
+                            <img className={style.planer1} src="./files/cosmos/planer1.png" alt=""/>
+                            <img className={style.blue} src="./files/cosmos/blue.svg" alt=""/>
+                            <img className={style.planer2} src="./files/cosmos/planer2.png" alt=""/>
+                            <img className={style.grey} src="./files/cosmos/grey.svg" alt=""/>
                         </div>
                     </div>
                     <div className={style.right}>
                         <div className={style.title}>
-                            Всегда под рукой
+                            АВИАТЕХ
                         </div>
                         <div className={style.pretitle}>
-                            Мы создали удобное приложение, где вы сможете получить всю необходимую информацию о предстоящих мероприятиях и расписании групповых программ, а также записаться на них.
-                        </div>
-                        <div className={style.btns_application}>
-                            <div className={style.btn_android}>
-                                <i className="fa-brands fa-google-play"/>
-                                <div className={style.text}>
-                                    GET IT ON
-                                    <label>Google Play</label>
-                                </div>
-                            </div>
-                            <div className={style.btn_apple}>
-                                <i className="fa-brands fa-apple"/>
-
-                                <div className={style.text}>
-                                    Download on the
-                                    <label>App Store</label>
-                                </div>
-                            </div>
+                            Авиационный учебный центр по подготовке специалистов авиационного персонала
                         </div>
                         <div className={style.desc}>
-                            В приложении также доступна подробная информация о каждом тренере и стоимости тренировок.
-                        </div>
-                        <div className={style.desc}>
-                            Помимо этого, вы сможете ознакомиться с тарифами на приобретение клубной карты и оформить ее не выходя из дома.
+                            Никогда не поздно начать летать - АвиаТЕХ: ваш первый шаг к небу!
                         </div>
                     </div>
                 </div>
-                
+                <div className={style.contenttwo}>
+                    <div className={style.blocks}>
+                        {whys.map((block, index) => (
+                            <div key={index} className={style.why} style={{backgroundImage: `url('files/cosmos/${block.back}')`}}>
+                                <div className={style.fon}></div>
+                                <img src={`files/cosmos/${block.image}`} alt=""/>
+                                <div className={style.desc}>
+                                    <div className={style.title}>{block.title}</div>
+                                    <div className={style.description}>{block.desc}</div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
     )

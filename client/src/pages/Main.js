@@ -11,15 +11,12 @@ import Actives from "../components/activeholding/Actives";
 import Footer from "../components/footer/Footer";
 import {useEffect} from "react";
 import {useLocation} from "react-router-dom";
-import ContactStrock from "../components/contactstrock/ContactStrock";
-import Carusel from "../components/contactstrock/Carusel";
-import ProductBlock from "../components/products/ProductBlock";
-import AboutFitness from "../components/about/AboutFitness";
 import Cosmos from "../components/cosmos/Cosmos";
-import AboutParalax from "../components/newabout/AboutParalax";
-import ZonesBlock from "../components/zones/Zone";
-import ZoneSlider from "../components/zones/ZoneSlider";
-import RoomsBlock from "../components/zones/RoomsBlock";
+import Planet from "../components/planet/Planet";
+import Prices from "../components/prices/Prices";
+import Learning from "../components/learning/Learning";
+import Teachers from "../components/teachers/Teachers";
+import TeacherTitle from "../components/titles/TeacherTitle";
 
 function Main () {
 
@@ -27,20 +24,16 @@ function Main () {
     return (
         <div className={style.bodymain}>
             <NewHeader />
-            <ContactStrock />
-            <ProductBlock />
-            {/*<AboutFitness />*/}
             <Cosmos />
-            <AboutParalax />
-            {/*<ZonesBlock />*/}
-            <ZoneSlider />
-            <RoomsBlock />
-            {/*<Carusel />*/}
-            <TwoBlocks />
-            <Group />
-            <NewAbout />
-            <Actives />
+            <Learning />
+            <TeacherTitle />
+            <Teachers />
             <NewsBlock />
+            {/*<Planet />*/}
+            {/*<Prices />*/}
+            {/*<TwoBlocks />*/}
+            {/*<Group />*/}
+            {/*<NewAbout />*/}
             <Footer />
             {/*<HeaderMain />*/}
             {/*<div className={style.blockvideo}>*/}
@@ -51,7 +44,6 @@ function Main () {
             {/*</div>*/}
             {/*<AboutUs />*/}
             {/*<Projects />*/}
-            {/*<NewsBlock />*/}
 
 
         </div>
