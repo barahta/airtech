@@ -35,19 +35,20 @@ function SmallHeader(){
 
                 <div className={style.rightpart}>
                     <div className={style.board}>
-                        <div  onClick={()=>postResume()} className={`${style.btn} ${style.left} ${style.down}`}>Записаться<div className={style.border}></div>
+                        <div  onClick={()=>postResume()} className={`${style.btn} ${style.left} ${style.down}`}>Программа для пилотов<div className={style.border}></div>
                         </div>
-                        {/*<div className={style.btn}>О нас<div className={style.border}></div></div>*/}
-                        <Link to='/allprograms' className={`${style.btn} ${style.right} ${style.down}`}>Все программы<div className={style.border}></div></Link>
+
+                        <Link to='/allprograms' className={`${style.btn} ${style.right} ${style.down}`}>Подготовка к обучению<div className={style.border}></div></Link>
+                        <Link to='/contacts' className={`${style.btn} ${style.left} ${style.down}`}>Парк самолетов<div className={style.border}></div></Link>
+                        <Link to='/phototour' className={`${style.btn} ${style.right} ${style.down}`}>Новости<div className={style.border}></div></Link>
                         <Link to='/contacts' className={`${style.btn} ${style.left}`}>Контакты<div className={style.border}></div></Link>
-                        <Link to='/phototour' className={`${style.btn} ${style.right}`}>Фототур<div className={style.border}></div></Link>
                     </div>
                 </div>
                 <div className={style.up}></div>
             </div>
             <div className={style.container}>
                 <Link to='/' className={style.leftpart}>
-                    <img src="/files/header/logomain3.svg" alt=""/>
+                    <img src="/files/header/aviatechsmall.svg" alt=""/>
                 </Link>
                 <div className={style.rightpart}>
                     <div className={style.burder} onClick={()=>setOpenburger(!openburger)} style={(openburger)?{rotate: '90deg', width: '70px'}:{rotate: '0deg'}}>
@@ -56,20 +57,29 @@ function SmallHeader(){
                         <div className={style.line} style={(openburger)?{backgroundColor:'#454545'}:{}}></div>
                     </div>
                     <div className={style.menu}>
-                        <div onClick={()=>postResume()}  className={style.page}>
-                            <div className={style.text}>Записаться</div>
-                            <div className={style.active}></div>
-                        </div>
+
+                        {/*<div onClick={()=>postResume()}  className={style.page}>*/}
+                        {/*    <div className={style.text}>Записаться</div>*/}
+                        {/*    <div className={style.active}></div>*/}
+                        {/*</div>*/}
                         {/*<div className={style.page}>*/}
                         {/*    <div className={style.text}>О нас</div>*/}
                         {/*    <div className={style.active}></div>*/}
                         {/*</div>*/}
-                        <Link to='/allprograms' className={style.page}>
-                            <div className={style.text}>Все программы</div>
+                        <Link to='/pilots' className={style.page}>
+                            <div className={style.text}>Программа для пилотов</div>
                             <div className={style.active}></div>
                         </Link>
-                        <Link to='/phototour' className={style.page}>
-                            <div className={style.text}>Фототур</div>
+                        <Link to='/contacts' className={style.page}>
+                            <div className={style.text}>Подготовка к обучению</div>
+                            <div className={style.active}></div>
+                        </Link>
+                        <Link to='/contacts' className={style.page}>
+                            <div className={style.text}>Парк самолетов</div>
+                            <div className={style.active}></div>
+                        </Link>
+                        <Link to='/contacts' className={style.page}>
+                            <div className={style.text}>Новости</div>
                             <div className={style.active}></div>
                         </Link>
                         <Link to='/contacts' className={style.page}>

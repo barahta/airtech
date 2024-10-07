@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {observer} from "mobx-react-lite";
 import Actives from "./pages/Actives";
 import Galary from "./pages/Galary";
+import Pilots from "./pages/Pilots";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/activegroup" element={<Actives />} />
             <Route path="/phototour" element={<Galary />} />
+            <Route path="/pilots" element={<Pilots />} />
         </Routes>
           <ToastContainer />
       </Router>

@@ -46,7 +46,7 @@ function NewHeader() {
                 <div className={style.rightpart}>
                     <div className={style.board}>
                         {/*<div className={style.btn}>О нас<div className={style.border}></div></div>*/}
-                        <Link to='/allprograms' className={style.btn}>Программа для пилотов<div className={style.border}></div></Link>
+                        <Link to='/pilots' className={style.btn}>Программа для пилотов<div className={style.border}></div></Link>
                         <Link to='/contacts' className={style.btn}>Подготовка к обучению<div className={style.border}></div></Link>
                         <Link to='/contacts' className={style.btn}>Парк самолетов<div className={style.border}></div></Link>
                         <Link to='/contacts' className={style.btn}>Новости<div className={style.border}></div></Link>

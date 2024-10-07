@@ -1,9 +1,10 @@
 import style from './NewsBlockStyle.module.scss'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import BigModal from "../modalwin/BigModal";
 import OpenCompany from "../groupcompany/OpenCompany";
 import OpenNews from "./OpenNews";
 import {Link} from "react-router-dom";
+import NewsService from "../../services/NewsService";
 
 function NewsBlock () {
 
@@ -13,7 +14,7 @@ function NewsBlock () {
     const [activemodal, setActivemodal] = useState(false)
     const [data, setData] = useState('')
 
-    const news = [
+    const viewNews = [
         {
             name: '«Hope Fitness» провел тренировку в парке «За Саймой»',
             desc: 'Тренеры провели разминку в стиле «body combat» и обучили базовым навыкам бокса',
@@ -189,6 +190,23 @@ function NewsBlock () {
         setData(post)
     }
 
+    const [news, setNews]=useState([])
+
+    const viewPost = async () => {
+        try{
+            const {data} = await NewsService.viewPost()
+            console.log(data)
+            setNews(data.reverse())
+        }catch(e){
+            console.log(e)
+        }
+    }
+
+    useEffect(()=>{
+        viewPost()
+        console.log(process.env.REACT_APP_API_URL)
+    },[])
+
     return(
         <div className={style.main}>
             <BigModal data={<OpenNews news={data}  width={'900px'}/>} activemodal={activemodal} setActivemodal={setActivemodal} setData={setData}/>
@@ -199,9 +217,9 @@ function NewsBlock () {
                     if(start+3 > index && index>=start){
                         return(
                             <div key={index} className={style.news_block} onClick={()=>openNews(elem)}>
-                                <div className={style.img} style={{backgroundImage: `url('/files/news/${elem.url}')`}}></div>
-                                <div className={style.date}>{elem.date}</div>
-                                <div className={style.name}>{(elem.name.length > 80)?elem.name.slice(0, 80) + '...':elem.name}</div>
+                                <div className={style.img} style={{backgroundImage: `url('${process.env.REACT_APP_API_URL}/${elem.image}')`}}></div>
+                                <div className={style.date}>{elem.createdAt}</div>
+                                <div className={style.name}>{(elem.title.length > 80)?elem.title.slice(0, 80) + '...':elem.title}</div>
                                 <div className={style.active}></div>
                             </div>
                         )
