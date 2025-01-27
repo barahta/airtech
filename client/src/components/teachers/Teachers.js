@@ -95,8 +95,8 @@ function Teachers() {
                                 ref={pilotRef}
                                 className={`${style.pilot} ${isVisible ? style.visible : ''}`}
                             >
-                                <div className={style.dev}>Пилот-инструктор</div>
-                                <div className={style.name}>Вершинин Вячеслав Витальевич</div>
+                                <div className={style.dev}>Заместитель директора по летной работе, пилот-инструктор</div>
+                                <div className={style.name}>Волчихин Геннадий Александрович</div>
                             </div>
                             <div className={style.desc}>
                                 <div className={style.text}>
@@ -123,9 +123,9 @@ function Teachers() {
                 </div>
 
             </div>
-            <div className={style.allteachers}>
-                <div className={style.btn}>Все преподаватели <div className={style.next}></div></div>
-            </div>
+            {/*<div className={style.allteachers}>*/}
+            {/*    <div className={style.btn}>Все преподаватели <div className={style.next}></div></div>*/}
+            {/*</div>*/}
         </div>
     );
 }

@@ -1,90 +1,198 @@
-.main{
-  width: 100%;
-  height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  //background-image: url("../images/backslash.svg");
-  background-size: cover;
-  background-position: center center;
-  position: relative;
-  .backslash{
+@media screen and (min-width: 1000px){
+  .main{
     width: 100%;
-    height: 100%;
-    background-color: #F1F1F1;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .container{
-    width: 100%;
-    max-width: 1920px;
-    height: 100%;
+    height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
-    .form{
-      width: calc(100% - 100px);
-      height: calc(100% - 40px);
-      //background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(31, 9, 61, 0.7));
-      backdrop-filter: blur(10px);
+    //background-image: url("../images/backslash.svg");
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    .backslash{
+      width: 100%;
+      height: 100%;
+      background-color: #F1F1F1;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .container{
+      width: 100%;
+      max-width: 1920px;
+      height: 100%;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-
-      .one{
-        width: 10%;
-        height: 3px;
-        background-color: #CCC;
-        margin: 10px 0;
-        border-radius: 10px;
-      }
-      .two{
-        width: 30%;
-        height: 5px;
-        background-color: #dadada;
-        margin: 10px 0;
-        border-radius: 10px;
-      }
-      .three{
-        width: 50%;
-        height: 7px;
-        background-color: #e7e7e7;
-        margin: 10px 0;
-        border-radius: 10px;
-      }
-
-      .call{
+      .form{
+        width: calc(100% - 100px);
+        height: calc(100% - 40px);
+        //background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(31, 9, 61, 0.7));
+        backdrop-filter: blur(10px);
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 10px 0;
-        img{
-          height: 100px;
+
+        .one{
+          width: 10%;
+          height: 3px;
+          background-color: #CCC;
+          margin: 10px 0;
+          border-radius: 10px;
         }
-        .text{
-            font-size: 18pt;
-          margin-left: 50px
+        .two{
+          width: 30%;
+          height: 5px;
+          background-color: #dadada;
+          margin: 10px 0;
+          border-radius: 10px;
         }
-        .btn{
-          width: 250px;
-          height: 60px;
+        .three{
+          width: 50%;
+          height: 7px;
+          background-color: #e7e7e7;
+          margin: 10px 0;
+          border-radius: 10px;
+        }
+
+        .call{
           display: flex;
           justify-content: center;
           align-items: center;
-          border: 2px solid rgba(103,37,131,0.8);
-          margin-left: 50px;
-          cursor: pointer;
-          text-transform: uppercase;
-          transition: 0.2s;
+          margin: 10px 0;
+          img{
+            height: 100px;
+          }
+          .text{
+            font-size: 18pt;
+            margin-left: 50px
+          }
+          .btn{
+            width: 250px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid rgba(103,37,131,0.8);
+            margin-left: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.2s;
+          }
+          .btn:hover{
+            width: 250px;
+            height: 60px;
+            background: linear-gradient(to right, rgba(65,0,153,0.8), rgba(103,37,131,0.8));
+            color: #FFFFFF;
+            transition: 0.2s;
+          }
         }
-        .btn:hover{
-          width: 250px;
-          height: 60px;
-          background: linear-gradient(to right, rgba(65,0,153,0.8), rgba(103,37,131,0.8));
-          color: #FFFFFF;
-          transition: 0.2s;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1000px){
+  .main{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //background-image: url("../images/backslash.svg");
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    .backslash{
+      width: 100%;
+      height: 100%;
+      background-color: #F1F1F1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+    }
+    .container{
+      width: 100%;
+      max-width: 1920px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .form{
+        width: calc(100% - 100px);
+        height: calc(100% - 40px);
+        //background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(31, 9, 61, 0.7));
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .one{
+          width: 10%;
+          height: 3px;
+          background-color: #CCC;
+          margin: 10px 0;
+          border-radius: 10px;
+          display: none;
+        }
+        .two{
+          width: 30%;
+          height: 5px;
+          background-color: #dadada;
+          margin: 10px 0;
+          border-radius: 10px;
+          display: none;
+        }
+        .three{
+          width: 50%;
+          height: 7px;
+          background-color: #e7e7e7;
+          margin: 10px 0;
+          border-radius: 10px;
+          display: none;
+        }
+
+        .call{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin: 10px 0;
+          width: 100%;
+          img{
+            height: 100px;
+          }
+          .text{
+            width: 100%;
+            font-size: 18pt;
+            margin-left: 0px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+          }
+          .btn{
+            width: 250px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid rgba(103,37,131,0.8);
+            margin-left: 0px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.2s;
+            margin-top: 15px;
+          }
+          .btn:hover{
+            width: 250px;
+            height: 60px;
+            background: linear-gradient(to right, rgba(65,0,153,0.8), rgba(103,37,131,0.8));
+            color: #FFFFFF;
+            transition: 0.2s;
+          }
         }
       }
     }

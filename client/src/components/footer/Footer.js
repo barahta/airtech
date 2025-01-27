@@ -14,29 +14,29 @@ function Footer (){
                             {/*    <div className={style.next}></div>*/}
                             {/*    <div className={style.text}>О нас</div>*/}
                             {/*</div>*/}
-                            <Link to='/activegroup' className={style.point}>
+                            <Link to='/pilots' className={style.point}>
                                 <div className={style.next}></div>
-                                <div className={style.text}>Записаться</div>
+                                <div className={style.text}>Программа обучения</div>
                             </Link>
-                            <Link to='/allnews'  className={style.point}>
+                            <Link to='/preright'  className={style.point}>
                                 <div className={style.next}></div>
-                                <div className={style.text}>Все программы</div>
+                                <div className={style.text}>Подготовка</div>
                             </Link>
                         </div>
-                        {/*<div className={style.column}>*/}
-                        {/*    <div className={style.point}>*/}
-                        {/*        <div className={style.next}></div>*/}
-                        {/*        <div className={style.text}>Стратегические приоритеты</div>*/}
-                        {/*    </div>*/}
-                        {/*    <div className={style.point}>*/}
-                        {/*        <div className={style.next}></div>*/}
-                        {/*        <div className={style.text}>История</div>*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
                         <div className={style.column}>
-                            <Link to='/contacts'  className={style.point}>
+                            <Link to={'/allnews'} className={style.point}>
                                 <div className={style.next}></div>
-                                <div className={style.text}>Фототур</div>
+                                <div className={style.text}>Новости</div>
+                            </Link>
+                            <Link to={'/contacts'} className={style.point}>
+                                <div className={style.next}></div>
+                                <div className={style.text}>Контакты</div>
+                            </Link>
+                        </div>
+                        <div className={style.column}>
+                            <Link to='/park'  className={style.point}>
+                                <div className={style.next}></div>
+                                <div className={style.text}>Парк самолетов</div>
                             </Link>
                         </div>
                     </div>
@@ -45,25 +45,25 @@ function Footer (){
                             {/*    <div className={style.next}></div>*/}
                             {/*    <div className={style.text}>О нас</div>*/}
                             {/*</div>*/}
-                            <Link to={'/activegroup'} className={style.point}>
+                            <Link to={'/pilots'} className={style.point}>
                                 <div className={style.next}></div>
-                                <div className={style.text}>Записаться</div>
+                                <div className={style.text}>Программа обучения</div>
+                            </Link>
+                            <Link to={'/preright'} className={style.point}>
+                                <div className={style.next}></div>
+                                <div className={style.text}>Подготовка</div>
                             </Link>
                             <Link to={'/allnews'} className={style.point}>
                                 <div className={style.next}></div>
-                                <div className={style.text}>Все программы</div>
+                                <div className={style.text}>Новости</div>
                             </Link>
-                            {/*<div className={style.point}>*/}
-                            {/*    <div className={style.next}></div>*/}
-                            {/*    <div className={style.text}>Стратегические приоритеты</div>*/}
-                            {/*</div>*/}
-                            {/*<div className={style.point}>*/}
-                            {/*    <div className={style.next}></div>*/}
-                            {/*    <div className={style.text}>История</div>*/}
-                            {/*</div>*/}
                             <Link to={'/contacts'} className={style.point}>
                                 <div className={style.next}></div>
-                                <div className={style.text}>Фототур</div>
+                                <div className={style.text}>Контакты</div>
+                            </Link>
+                            <Link to={'/park'} className={style.point}>
+                                <div className={style.next}></div>
+                                <div className={style.text}>Парк самолетов</div>
                             </Link>
                     </div>
                 </div>
@@ -74,10 +74,10 @@ function Footer (){
                         <div className={style.phone}>+7 (343) 363-97-60</div>
                     </div>
                     <div className={style.sociality}>
-                        <i className="fa-brands fa-telegram"/>
-                        <i className="fa-brands fa-instagram"/>
-                        <i className="fa-brands fa-vk"/>
-                        <i className="fa-brands fa-whatsapp"/>
+                        <a href='https://t.me/atitochnoproduser' target="_blank" rel="noopener noreferrer" ><i className="fa-brands fa-telegram"/></a>
+                        <a href='https://www.instagram.com/aviatechsekb?igsh=NTc4MTIwNjQ2YQ==' target="_blank" rel="noopener noreferrer" ><i className="fa-brands fa-instagram"/></a>
+                        <a href='https://vk.com/aviatexekb' target="_blank" rel="noopener noreferrer" ><i className="fa-brands fa-vk"/></a>
+                        <a href='https://wa.me/message/LRG2COEM7MP6O1' target="_blank" rel="noopener noreferrer" ><i className="fa-brands fa-whatsapp"/></a>
                     </div>
                     <div className={style.autor}>
                         <div className={style.copyright}>

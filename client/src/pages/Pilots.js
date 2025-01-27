@@ -13,46 +13,101 @@ import {Link} from "react-router-dom";
 import TeacherTitle from "../components/titles/TeacherTitle";
 import Teachers from "../components/teachers/Teachers";
 import CallMe from "../components/callme/CallMe";
+import EntryBlanck from "../components/forms/EntryBlanck";
+import PostQuestion from "../components/forms/PostQuestion";
+import NewsService from "../services/NewsService";
 
 function Pilots (){
 
 
 
     const [checkvak, setCheckvak] = useState('')
+    const [list, setList] = useState([])
     const [activemodal, setActivemodal] = useState(false)
+
     const [data, setData] = useState('')
     let totality = 0
 
+    const getPrices = async () => {
+        try{
+            const {data} = await NewsService.getAllPticesAvia({capter: 'aviatech'})
+            if(data){
+                data.sort((a, b) => a.priory - b.priory);
+                console.log(data)
+                setList(data)
+            }
+        }catch(e){
+            console.log(e)
+        }
+    }
 
+    useEffect(()=>{
+        getPrices()
+    }, [])
 
     return (
         <div className={style.bodymain}>
-            <WriteModal activemodal={activemodal} setActivemodal={setActivemodal} data={<PostResume man={data}  setActivemodal={setActivemodal}/>} setData={setData} />
+            <WriteModal activemodal={activemodal} setActivemodal={setActivemodal} data={<EntryBlanck man={data}  setActivemodal={setActivemodal}/>} setData={setData} />
             <SmallHeader/>
             <div className={pilots.pilots}>
                     <div className={pilots.container}>
+
                         <div className={pilots.title}>
-                            <div className={pilots.name}>Программа подготовки частных пилотов малой авиации</div>
-                            <div className={pilots.packet}>
-                                <div className={pilots.pacname}>
-                                    <div className={pilots.up}>Срок программы:</div>
-                                    <div className={pilots.oclock}><label>50</label> дней</div>
-                                </div>
-                                <div className={pilots.pacname}>
-                                    <div className={pilots.up}>Теория:</div>
-                                    <div className={pilots.oclock}><label>188</label> часов</div>
-                                </div>
-                                <div className={pilots.pacname}>
-                                    <div className={pilots.up}>Летная практика:</div>
-                                    <div className={pilots.oclock}><label>40</label> часов</div>
-                                </div>
+                            <div className={pilots.name}>Программы подготовки</div>
+                            <div className={pilots.packs}>
+                                {(list && list.length> 0)&&list.map((price, index)=>(
+                                    <div className={pilots.element} key={index}>
+                                        <div className={pilots.name_elem}>{price.name}</div>
+                                        <div className={pilots.desc}>{price.description}</div>
+                                        <div className={pilots.timer}>
+                                            <div className={pilots.timer_slot}>
+                                                <div className={pilots.slot_title}>Срок программы:</div>
+                                                <div className={pilots.slot_desc}>{price.time} дней</div>
+                                            </div>
+                                            <div className={pilots.timer_slot}>
+                                                <div className={pilots.slot_title}>Теория:</div>
+                                                <div className={pilots.slot_desc}>{price.theory} часов</div>
+                                            </div>
+                                            <div className={pilots.timer_slot}>
+                                                <div className={pilots.slot_title}>Летная практика:</div>
+                                                <div className={pilots.slot_desc}>{price.practice} часов</div>
+                                            </div>
+                                        </div>
+                                        <div className={pilots.pricetitle}>Стоимость обучения</div>
+                                        <div className={pilots.priceour}>
+                                            <div className={pilots.priceour_price}>{(price.priceour[0])&&'от '}{(+price.priceour[1]).toLocaleString('ru-RU')}</div>
+                                            <div className={pilots.priceour_desc}></div>
+                                        </div>
+                                        <div className={pilots.priceyour}>
+                                            <div className={pilots.priceyour_price}>{(price.priceyour[0])&&'от '}{(+price.priceyour[1]).toLocaleString('ru-RU')}</div>
+                                            <div className={pilots.priceyour_desc}>
+                                                - На своём воздушном судне. Сумма скидки {(+price.priceour[1] - (+price.priceyour[1])).toLocaleString('ru-RU')} рублей.
+                                            </div>
+                                        </div>
+
+                                        <div className={pilots.pricetitle}>Варианты обучения</div>
+                                        <div className={pilots.less}>
+                                            {(price.programs && price.programs.length>0)&&price.programs.map((program, indexProg)=>(
+                                                <div className={pilots.less_slot} key={indexProg}>{program}</div>
+                                            ))}
+                                        </div>
+                                        <div className={pilots.disc}>
+                                            {(price.discounts && price.discounts.length>0)&&price.discounts.map((discount, indexDisc)=>(
+                                                <div className={pilots.disc_slot} key={indexDisc}>
+                                                    <div className={pilots.disc_slot_num}>- {discount[0]}%</div>
+                                                    <div className={pilots.disc_slot_desc}>{discount[1]}</div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                             <div className={pilots.desc}>
                                 <div className={pilots.ochno}>Форма обучения: <label>очная</label></div>
                                 <div className={pilots.more}>
                                     <div className={pilots.openmore}>
                                         <div className={pilots.next}></div>
-                                        <Link to='/allnews' className={pilots.title}>Оставить заявку</Link>
+                                        <div className={pilots.title} onClick={()=>setActivemodal(true)}>Оставить заявку</div>
                                     </div>
                                 </div>
                             </div>
@@ -70,20 +125,20 @@ function Pilots (){
             </div>
             <div className={pilots.planers}>
                 <div className={pilots.content}>
-                    <div className={pilots.fly}>
+                    <Link to="/preright" className={pilots.fly}>
                         <div className={pilots.name}>CESSNA 172</div>
                         <div className={pilots.image}>
                             <img src="files/planers/cessna172.webp" className={pilots.plane1}/>
                         </div>
                         <div className={pilots.left}></div>
-                    </div>
-                    <div className={pilots.fly}>
+                    </Link>
+                    <Link to="/preright" className={pilots.fly}>
                         <div className={pilots.name}>PIPER PA-28</div>
                         <div className={pilots.image}>
                             <img src="files/planers/paiper.webp"  className={pilots.plane2}/>
                         </div>
                         <div className={pilots.right}></div>
-                    </div>
+                    </Link>
                 </div>
             </div>
             <div className={pilots.lessons}>
@@ -211,9 +266,10 @@ function Pilots (){
                     </div>
                 </div>
             </div>
-            <CallMe />
+
             <TeacherTitle />
             <Teachers />
+            <CallMe />
             <Footer/>
         </div>
     )

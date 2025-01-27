@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import style from './TeacherTitle.module.scss';
 
-function TeacherTitle() {
+function TeacherTitle({titletextr, desctextr}) {
     const [isVisible, setIsVisible] = useState(false);
     const titleRef = useRef(null);
     const descRef = useRef(null);
@@ -40,13 +40,15 @@ function TeacherTitle() {
                 ref={titleRef}
                 className={`${style.title} ${isVisible ? style.titlevisible : ''}`}
             >
-                Пилоты-инструкторы
+                {(titletextr)?titletextr:'Пилоты-инструкторы'}
             </div>
+
             <div
                 ref={descRef}
                 className={`${style.desc} ${isVisible ? style.descvisible : ''}`}
             >
-                Самый профессиональный состав инструкторов и преподавателей, готовых делится своим опытом и знаниями:
+                {(desctextr)?desctextr:'Самый профессиональный состав инструкторов и преподавателей, готовых делится своим опытом и знаниями:'}
+
             </div>
         </div>
     );

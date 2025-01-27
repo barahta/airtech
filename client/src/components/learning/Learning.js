@@ -1,5 +1,8 @@
 import style from './Learning.module.scss'
 import {useState} from "react";
+import WriteModal from "../modalwin/WriteModal";
+import EntryBlanck from "../forms/EntryBlanck";
+import {Link} from "react-router-dom";
 
 function Learning (){
 
@@ -25,16 +28,18 @@ function Learning (){
     ]
 
     const [activeblock, setActiveblock] = useState('')
-
+    const [activemodal, setActivemodal] = useState(false)
+    const [data, setData] = useState('')
     return(
         <div className={style.main}>
+            <WriteModal activemodal={activemodal} setActivemodal={setActivemodal} data={<EntryBlanck man={data}  setActivemodal={setActivemodal}/>} setData={setData} />
 
             <div className={style.paralax}>
             </div>
             <div className={style.container}>
                 <div className={style.titlemain}>
                     <div className={style.text}>Покоряйте небо с нами*</div>
-                    <div className={style.btn}>Оставить заявку</div>
+                    <div className={style.btn} onClick={()=>setActivemodal(true)}>Оставить заявку</div>
                 </div>
                 <div className={style.contenttwo}>
                     <div className={style.blocks}>
@@ -48,7 +53,7 @@ function Learning (){
                                 <div className={style.description}>Индивидуальное обучение</div>
                             </div>
                             <div className={style.btn}>
-                                <div className={style.text}>Подробнее</div>
+                                <Link to={'/pilots'} className={style.text}>Подробнее</Link>
                             </div>
                         </div>
                         <div className={style.why}>
@@ -59,7 +64,7 @@ function Learning (){
                                 <div className={style.description}>Пилота свободного аэростата (воздушный шар) - 1 100 000₽ - подробнее</div>
                             </div>
                             <div className={style.btn}>
-                                <div className={style.text}>Подробнее</div>
+                                <Link to={'/pilots'} className={style.text}>Подробнее</Link>
                             </div>
                         </div>
                         <div className={style.why}>
@@ -71,7 +76,7 @@ function Learning (){
                                 <div className={style.description}>Рекомендации</div>
                             </div>
                             <div className={style.btn}>
-                                <div className={style.text}>Подробнее</div>
+                                <Link to={'/pilots'} className={style.text}>Подробнее</Link>
                             </div>
                         </div>
                     </div>

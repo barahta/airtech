@@ -14,6 +14,8 @@ import {observer} from "mobx-react-lite";
 import Actives from "./pages/Actives";
 import Galary from "./pages/Galary";
 import Pilots from "./pages/Pilots";
+import PreRight from "./pages/PreRight";
+import Park from "./pages/Park";
 
 
 function App() {
@@ -22,12 +24,14 @@ function App() {
         <Routes>
 
             <Route path="/" element={<Main />} />
-            <Route path="/allprograms" element={<AllNews />} />
+            <Route path="/allnews" element={<AllNews />} />
             <Route path="/vakansii" element={<Vakansii />} />
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/activegroup" element={<Actives />} />
             <Route path="/phototour" element={<Galary />} />
             <Route path="/pilots" element={<Pilots />} />
+            <Route path="/preright" element={<PreRight />} />
+            <Route path="/park" element={<Park />} />
         </Routes>
           <ToastContainer />
       </Router>

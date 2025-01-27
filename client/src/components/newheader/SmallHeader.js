@@ -4,10 +4,12 @@ import {useEffect} from "react";
 import {useState} from "react";
 import EntryBlanck from "../forms/EntryBlanck";
 import WriteModal from "../modalwin/WriteModal";
+import NewsService from "../../services/NewsService";
 
 function SmallHeader(){
 
     const [openburger, setOpenburger] = useState(false)
+    const [news, setNews] = useState([])
 
     const [activemodal, setActivemodal] = useState(false)
     const [data, setData] = useState('')
@@ -17,31 +19,59 @@ function SmallHeader(){
         setActivemodal(true)
     }
 
+    const viewPost = async () => {
+        console.log('здесь заходит в функцию')
+        try{
+            const {data} = await NewsService.viewPost()
+            console.log(data)
+            const filteredData = data.filter(item =>
+                item.public.some(company => company.name === "АВИАТЕХ" && company.active === true)
+            );
+            setNews(filteredData)
+        }catch(e){
+
+        }
+    }
+
+    useEffect(()=>{
+        viewPost()
+    }, [])
+
     useEffect(() => {
         window.scrollTo(0, 0);
         if(openburger===true){
-            document.body.style.position = 'fixed'
+            // document.body.style.position = 'fixed'
             document.body.style.top = '0px'
         }else{
-            document.body.style.position = 'relative'
+            // document.body.style.position = 'relative'
             document.body.style.top = '0px'
         }
     }, [openburger]);
 
+
+
     return(
         <div className={style.main}>
             <WriteModal activemodal={activemodal} setActivemodal={setActivemodal} data={<EntryBlanck man={data}  setActivemodal={setActivemodal}/>} setData={setData} />
+
             <div className={style.menumobile} style={(openburger)?{maxHeight:'100%', opacity: '1', marginTop: '0px', display:'flex'}:{}}>
 
                 <div className={style.rightpart}>
                     <div className={style.board}>
-                        <div  onClick={()=>postResume()} className={`${style.btn} ${style.left} ${style.down}`}>Программа для пилотов<div className={style.border}></div>
-                        </div>
+                        <Link to='/pilots'  className={`${style.btn} ${style.left} ${style.down}`}>Программа для пилотов<div className={style.border}></div>
+                        </Link>
 
-                        <Link to='/allprograms' className={`${style.btn} ${style.right} ${style.down}`}>Подготовка к обучению<div className={style.border}></div></Link>
-                        <Link to='/contacts' className={`${style.btn} ${style.left} ${style.down}`}>Парк самолетов<div className={style.border}></div></Link>
-                        <Link to='/phototour' className={`${style.btn} ${style.right} ${style.down}`}>Новости<div className={style.border}></div></Link>
+                        <Link to='/preright' className={`${style.btn} ${style.right} ${style.down}`}>Подготовка к обучению<div className={style.border}></div></Link>
+                        <Link to='/park' className={`${style.btn} ${style.left} ${style.down}`}>Парк самолетов<div className={style.border}></div></Link>
+                        {(news.length>2)&&(
+                            <Link to='/allnews' className={`${style.btn} ${style.right} ${style.down}`}>Новости<div className={style.border}></div></Link>
+                        )}
+                        {(news.length<=2)&&(
+                            <a href="https://gk-omedia.ru/allnews" target="_blank" rel="noopener noreferrer" className={`${style.btn} ${style.right} ${style.down}`}>Новости<div className={style.border}></div></a>
+                        )}
+
                         <Link to='/contacts' className={`${style.btn} ${style.left}`}>Контакты<div className={style.border}></div></Link>
+                        <div className={`${style.btn} ${style.left}`} onClick={()=>postResume()}>Оставь заявку<div className={style.border}></div></div>
                     </div>
                 </div>
                 <div className={style.up}></div>
@@ -70,15 +100,15 @@ function SmallHeader(){
                             <div className={style.text}>Программа для пилотов</div>
                             <div className={style.active}></div>
                         </Link>
-                        <Link to='/contacts' className={style.page}>
+                        <Link to='/preright' className={style.page}>
                             <div className={style.text}>Подготовка к обучению</div>
                             <div className={style.active}></div>
                         </Link>
-                        <Link to='/contacts' className={style.page}>
+                        <Link to='/park' className={style.page}>
                             <div className={style.text}>Парк самолетов</div>
                             <div className={style.active}></div>
                         </Link>
-                        <Link to='/contacts' className={style.page}>
+                        <Link to='/allnews' className={style.page}>
                             <div className={style.text}>Новости</div>
                             <div className={style.active}></div>
                         </Link>

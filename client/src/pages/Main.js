@@ -29,23 +29,7 @@ function Main () {
             <TeacherTitle />
             <Teachers />
             <NewsBlock />
-            {/*<Planet />*/}
-            {/*<Prices />*/}
-            {/*<TwoBlocks />*/}
-            {/*<Group />*/}
-            {/*<NewAbout />*/}
             <Footer />
-            {/*<HeaderMain />*/}
-            {/*<div className={style.blockvideo}>*/}
-            {/*    <video autoPlay="autoplay" muted="muted" loop="loop" playsInline="">*/}
-            {/*    <source src="/files/header/intro.mp4" type="video/mp4"/>*/}
-            {/*</video>*/}
-
-            {/*</div>*/}
-            {/*<AboutUs />*/}
-            {/*<Projects />*/}
-
-
         </div>
     )
 }
